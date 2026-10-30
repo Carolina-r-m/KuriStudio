@@ -1,0 +1,10 @@
+# Cosas del ordenador que no hace falta subir
+.DS_Store
+Thumbs.db
+
+# Netlify (se crea al probar en local)
+.netlify/
+node_modules/
+
+# Nunca subir claves
+.env
