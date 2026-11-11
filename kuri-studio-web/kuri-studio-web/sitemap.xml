@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Páginas que queremos en Google. La de privacidad no va, no hace falta que salga -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kuristudio.es/</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+</urlset>

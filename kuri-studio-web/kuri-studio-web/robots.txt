@@ -1,0 +1,5 @@
+# Google y los demás buscadores pueden ver toda la web
+User-agent: *
+Allow: /
+
+Sitemap: https://kuristudio.es/sitemap.xml
