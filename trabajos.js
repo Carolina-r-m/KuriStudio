@@ -10,7 +10,6 @@ window.KURI_TRABAJOS = [
   { src: "assets/img/pinkchrome.jpg", cat: "unas",   alt: "Uñas stiletto en degradado rosa y fucsia con detalles cromados" },
   { src: "assets/img/brows4.jpg",     cat: "mirada", alt: "Cejas laminadas con efecto pelo a pelo" },
   { src: "assets/img/jewels.jpg",     cat: "unas",   alt: "Uñas nude con relieves cromados y pedrería" },
-  { src: "assets/img/zombie.jpg",     cat: "unas",   alt: "Nail art de Halloween con efecto herida y uñas zombi" },
   { src: "assets/img/pinkchain.jpg",  cat: "unas",   alt: "Uñas rosas con relieve, cadena dorada y charm" },
   { src: "assets/img/blue.jpg",    cat: "unas",   alt: "Uñas stiletto negras con efecto azul eléctrico y lunas" },
   { src: "assets/img/fruit.jpg",   cat: "unas",   alt: "Nail art de frutas: kiwi, fresa, limón, papaya y cereza" },
