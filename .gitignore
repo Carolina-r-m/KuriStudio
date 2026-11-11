@@ -6,5 +6,8 @@ Thumbs.db
 .netlify/
 node_modules/
 
+# Se genera al publicar
+dist/
+
 # Nunca subir claves
 .env

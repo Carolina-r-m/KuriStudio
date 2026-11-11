@@ -1,6 +1,8 @@
-# Configuración de Netlify: la web está en la raíz y la función del chat en netlify/functions
+# Configuración de Netlify. Al publicar, build.mjs comprime y ofusca la web en dist/
+# La función del chat está en netlify/functions (va al servidor, nadie la ve)
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
   functions = "netlify/functions"
 
 # Cabeceras básicas de seguridad

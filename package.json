@@ -1,0 +1,15 @@
+{
+  "name": "kuri-studio-web",
+  "private": true,
+  "description": "Web de Kuri Studio. Netlify ejecuta npm run build y publica la carpeta dist",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "clean-css": "5.3.3",
+    "html-minifier-terser": "7.2.0",
+    "javascript-obfuscator": "4.1.1",
+    "terser": "5.36.0"
+  }
+}

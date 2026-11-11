@@ -24,7 +24,8 @@ app.js                      Chat, galería, ventanas de la carta, test y carruse
 servicios.js                Carta completa (sale en las ventanas de cada categoría)
 trabajos.js                 Lista de fotos de la sección Trabajos
 netlify/functions/chat.mjs  Servidor del asistente IA (lleva la clave y lo que sabe el asistente)
-netlify.toml                Configuración de Netlify
+netlify.toml                Configuración de Netlify (ejecuta npm run build y publica dist/)
+build.mjs, package.json     Comprimen y ofuscan la web al publicar. dist/ no se sube a GitHub
 robots.txt, sitemap.xml     Para Google. Si se añade una página, va también al sitemap
 privacidad.html             Política de privacidad (plantilla con huecos entre corchetes)
 assets/img/                 Fotos (recortadas de capturas de pantalla, baja calidad)
@@ -72,6 +73,11 @@ Abre la web en http://localhost:8888 con la función del chat funcionando. Para 
 Sin el chat, basta con abrir `index.html` en el navegador.
 
 ## Publicar
+
+- Se edita siempre el código de la raíz, que es el limpio y con notas. Netlify ejecuta `build.mjs` y publica `dist/`: HTML y CSS comprimidos, JS ofuscado, sin README ni CLAUDE.md.
+- Si se añade un archivo nuevo que tenga que salir en la web, hay que añadirlo a las listas de arriba de `build.mjs`.
+- Probar la versión publicada en local: `npm install && npm run build` y abrir `dist/index.html`.
+- El repositorio de GitHub es **público**: cualquiera puede ver el código limpio ahí. Para que no, ponerlo privado en GitHub (Settings → General → Change visibility).
 
 GitHub → Netlify (importar el repositorio) → variables de entorno → conectar el dominio. Pasos detallados en `README.md`.
 

@@ -11,6 +11,7 @@ Web de presentación con asistente de IA, lista para publicar en un dominio prop
 - `netlify/functions/chat.mjs`: el servidor del asistente. Aquí está toda la información que conoce (servicios, precios, normas). **Si cambian precios, edítalos aquí.**
 - `netlify.toml`: configuración de Netlify.
 - `robots.txt` y `sitemap.xml`: para que Google encuentre la web.
+- `build.mjs` y `package.json`: al publicar, Netlify comprime la web y cifra (ofusca) el código, así que lo que se ve desde el navegador es ilegible. Tú editas siempre los archivos normales de aquí; Netlify hace el resto solo.
 
 ## Cómo funciona el asistente
 
