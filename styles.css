@@ -203,6 +203,17 @@ p { margin: 0; }
 .steps__n { font-family: var(--serif); font-style: italic; font-size: 44px; line-height: 1; color: var(--gold); }
 .steps__list h3 { font-size: 24px; }
 .steps__list p { color: var(--sand); font-weight: 300; max-width: 30ch; }
+/* Dos fotos verticales, la segunda un poco más baja para que no queden en bloque */
+.steps__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 760px; }
+.steps__photos img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 18px; border: 1px solid rgba(212, 178, 106, 0.3); }
+/* Encuadre: que se vean las manos y no la calle */
+.steps__photos img:first-child { object-position: center 70%; }
+.steps__photos img:last-child { object-position: center 85%; }
+.steps__photos img:last-child { margin-top: 48px; }
+@media (max-width: 560px) {
+  .steps__photos { gap: 12px; }
+  .steps__photos img:last-child { margin-top: 28px; }
+}
 
 /* Tarjeta regalo */
 .gift { background: var(--ivory); color: var(--forest); }
@@ -374,3 +385,35 @@ p { margin: 0; }
 .rating__link strong { color: var(--ivory); font-weight: 500; }
 
 .reviews__all { color: var(--ivory); font-weight: 500; }
+
+/* Formación */
+.training { background: var(--forest-2); border-top: 1px solid var(--line); }
+.training__inner { padding-top: 104px; padding-bottom: 104px; display: flex; flex-direction: column; gap: 48px; }
+.training__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
+.training__head { flex: 1 1 420px; display: flex; flex-direction: column; gap: 18px; max-width: 640px; }
+/* Retrato con el mismo arco que la foto de "Soy Cris" */
+.training__img { flex: 0 1 340px; min-width: 0; width: 100%; height: 420px; object-fit: cover; object-position: center 15%; border-radius: 200px 200px 16px 16px; border: 1px solid rgba(212, 178, 106, 0.4); }
+@media (max-width: 560px) { .training__img { flex-basis: 100%; height: 380px; } }
+.training__head .display { font-size: clamp(48px, 6vw, 80px); }
+.training__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+.tcard { display: flex; background: var(--forest); border: 1px solid rgba(212, 178, 106, 0.3); border-radius: 22px; overflow: hidden; }
+.tcard img { width: 42%; flex-shrink: 0; object-fit: cover; }
+.tcard__body { flex: 1; min-width: 0; padding: 28px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.tcard h3 { font-style: italic; font-size: 30px; line-height: 1.1; }
+.tcard ul { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-direction: column; gap: 8px; color: var(--sand); font-weight: 300; }
+.tcard li::before { content: "✦"; color: var(--gold); font-size: 11px; margin-right: 10px; }
+/* Etiqueta pequeña encima del título (Personalizada / Próximamente) */
+.tcard__tag { margin: 0 0 -8px; padding: 4px 12px; border: 1px solid rgba(212, 178, 106, 0.5); border-radius: 999px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+/* La que aún no hay: un poco más apagada para que se note */
+.tcard--soon { border-style: dashed; }
+.tcard--soon img { filter: saturate(.7); }
+.tcard--soon .tcard__tag { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+/* En pantallas pequeñas la foto pasa arriba */
+@media (max-width: 560px) {
+  .tcard { flex-direction: column; }
+  .tcard img { width: 100%; height: 180px; }
+}
+.training__note { font-family: var(--serif); font-style: italic; font-size: 22px; color: #E9DFC9; }
+.training__note span { color: var(--gold); font-style: normal; margin-right: 6px; }
+.about__link { color: #7A5C22; text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
+.about__link:hover { color: var(--forest); }

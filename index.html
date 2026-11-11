@@ -6,10 +6,19 @@
 <title>Kuri Studio · Manicura, mirada y faciales en Cáceres</title>
 <meta name="description" content="Estudio de uñas, cejas, pestañas y tratamientos faciales en el centro de Cáceres. Nivelación, nail art y diseño de mirada con Cris Rabasa. Reserva online.">
 <meta name="theme-color" content="#0A1D19">
+<!-- Dirección oficial de la web (sin www), para que Google no la cuente dos veces -->
+<link rel="canonical" href="https://kuristudio.es/">
+<!-- Lo que se ve al compartir el enlace por WhatsApp o redes. La imagen tiene que ir con la dirección completa -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://kuristudio.es/">
+<meta property="og:site_name" content="Kuri Studio">
+<meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Kuri Studio · Cáceres">
 <meta property="og:description" content="Manicura, nail art, diseño de mirada y tratamientos faciales. Tu momento empieza aquí.">
-<meta property="og:image" content="assets/img/studio.jpg">
+<meta property="og:image" content="https://kuristudio.es/assets/img/studio.jpg">
+<meta property="og:image:width" content="1206">
+<meta property="og:image:height" content="662">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310302A'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' fill='%23D4B26A'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +29,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BeautySalon",
+  "@id": "https://kuristudio.es/#negocio",
   "name": "Kuri Studio",
-  "image": "assets/img/studio.jpg",
+  "url": "https://kuristudio.es/",
+  "image": "https://kuristudio.es/assets/img/studio.jpg",
   "telephone": "+34 695 16 81 91",
   "address": {
     "@type": "PostalAddress",
@@ -31,7 +42,8 @@
     "addressCountry": "ES"
   },
   "sameAs": ["https://instagram.com/kuristudio.caceres", "https://www.threads.net/@kuristudio.caceres"],
-  "priceRange": "€€"
+  "priceRange": "€€",
+  "founder": { "@type": "Person", "name": "Cristina Rabasa" }
 }
 </script>
 </head>
@@ -46,6 +58,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#test">Test</a>
       <a href="#sobre">Sobre Cris</a>
+      <a href="#formacion">Formación</a>
       <a href="#regalo">Regalar</a>
       <a href="#trabajos">Trabajos</a>
       <a href="#resenas">Reseñas</a>
@@ -204,13 +217,18 @@
         <li><span class="steps__n">3</span><h3>Lo diseñamos juntas</h3><p>Cris escucha lo que te apetece y adapta forma, color y diseño a tus manos y a tu cara.</p></li>
         <li><span class="steps__n">4</span><h3>Sales brillando</h3><p>Y si una uña da guerra, el arreglo es gratis hasta 3 semanas después de tu manicura.</p></li>
       </ol>
+      <!-- Fotos de Cris trabajando. La clienta solo sale de manos -->
+      <div class="steps__photos">
+        <img src="assets/img/cita-preparacion.jpg" alt="Cris preparando la uña con el torno, con guantes y aspirador de polvo" loading="lazy" width="1000" height="1333">
+        <img src="assets/img/cita-diseno.jpg" alt="Cris trabajando la cutícula de una clienta en su mesa junto al escaparate" loading="lazy" width="1000" height="1333">
+      </div>
     </div>
   </section>
 
   <!-- Sobre Cris -->
   <section id="sobre" class="about">
     <div class="wrap about__inner">
-      <img class="about__img" src="assets/img/cris.jpg" alt="Retrato de Cris Rabasa en su estudio" loading="lazy" width="500" height="540">
+      <img class="about__img" src="assets/img/cris.jpg" alt="Cris Rabasa sonriendo en Kuri Studio, delante de la cortina de terciopelo verde" loading="lazy" width="1000" height="1333">
       <div class="about__text">
         <p class="kicker kicker--dark">Detrás de Kuri</p>
         <h2 class="display">Soy Cris</h2>
@@ -219,7 +237,54 @@
         <ul class="tags">
           <li>Nivelación</li><li>Nail art</li><li>Diseño de mirada</li><li>Glossy Lips</li>
         </ul>
+        <a class="about__link" href="#formacion">¿Quieres aprender con ella? Ver formaciones →</a>
       </div>
+    </div>
+  </section>
+
+
+  <!-- Formación. Uñas: personalizada, confirmado con Cris. Cejas y pestañas: aún no la da, sale como "Próximamente" -->
+  <section id="formacion" class="training" aria-labelledby="training-title">
+    <div class="wrap training__inner">
+      <div class="training__top">
+        <div class="training__head">
+          <p class="kicker">Formación</p>
+          <h2 id="training-title" class="display">Aprende con Cris</h2>
+          <p class="lead">Formaciones personalizadas: Cris adapta cada curso a tu nivel y a lo que necesitas aprender, con el mismo cuidado por el detalle que pone en cada cita.</p>
+        </div>
+        <img class="training__img" src="assets/img/cris-formacion.jpg" alt="Cris Rabasa con los brazos cruzados en su estudio" loading="lazy" width="1000" height="1333">
+      </div>
+      <div class="training__cards">
+        <!-- Formación de uñas -->
+        <article class="tcard">
+          <img src="assets/img/formacion-paleta.jpg" alt="Cris mezclando colores en la paleta con un pincel fino de nail art" loading="lazy">
+          <div class="tcard__body">
+            <p class="tcard__tag">Personalizada</p>
+            <h3>Formación de uñas</h3>
+            <ul>
+              <li>Preparación de la uña</li>
+              <li>Manicura combinada</li>
+              <li>Nivelación</li>
+              <li>Nail art</li>
+            </ul>
+            <a class="btn btn--gold" href="https://wa.me/34695168191?text=Hola%20Cris%2C%20me%20interesa%20la%20formaci%C3%B3n%20de%20u%C3%B1as.%20%C2%BFMe%20cuentas%20c%C3%B3mo%20ser%C3%ADa%2C%20precio%20y%20fechas%3F" target="_blank" rel="noopener">Pedir información</a>
+          </div>
+        </article>
+        <!-- Cejas y pestañas: todavía no hay fechas -->
+        <article class="tcard tcard--soon">
+          <img src="assets/img/lash.jpg" alt="Pestañas con lifting" loading="lazy">
+          <div class="tcard__body">
+            <p class="tcard__tag">Próximamente</p>
+            <h3>Cejas y pestañas</h3>
+            <ul>
+              <li>Laminado de cejas</li>
+              <li>Lifting de pestañas</li>
+            </ul>
+            <a class="btn btn--ghost" href="https://wa.me/34695168191?text=Hola%20Cris%2C%20me%20interesa%20la%20formaci%C3%B3n%20de%20laminado%20de%20cejas%20y%20lifting%20de%20pesta%C3%B1as.%20%C2%BFMe%20avisas%20cuando%20haya%20fechas%3F" target="_blank" rel="noopener">Avísame cuando salga</a>
+          </div>
+        </article>
+      </div>
+      <p class="training__note"><span aria-hidden="true">✦</span> Precios, fechas y cómo sería tu formación: escríbele a Cris y lo preparáis juntas.</p>
     </div>
   </section>
 

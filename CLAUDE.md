@@ -85,7 +85,7 @@ GitHub → Netlify (importar el repositorio) → variables de entorno → conect
 ## Pendiente
 
 - [ ] **Formación**: temas de uñas confirmados (personalizada). Falta: precio, duración, si hay certificado, material o modelo. Cuando empiece la de cejas y pestañas, quitar el "Próximamente" en `index.html` y en `chat.mjs`.
-- [ ] **Fotos originales**: las actuales son recortes de capturas y se ven pixeladas. Sustituirlas por las originales con el mismo nombre en `assets/img/` (o en `assets/img/trabajos/` las nuevas).
+- [ ] **Fotos originales**: ya hay originales de Cris (`cris.jpg`, `cris-formacion.jpg`, `formacion-paleta.jpg`, `cita-preparacion.jpg`, `cita-diseno.jpg`; se guardan a 1000 px y sin datos de ubicación). El resto siguen siendo recortes de capturas y se ven pixeladas. Sustituirlas por las originales con el mismo nombre en `assets/img/` (o en `assets/img/trabajos/` las nuevas).
 - [ ] **Enlace de Booksy**: comprobar que `kuristudio.booksy.com/a` funciona; si no, usar el enlace largo de arriba.
 - [ ] **Horario**: no está en la web. Pedírselo a Cris (en Booksy sale por días) y añadirlo a Visítanos, al asistente y como `openingHoursSpecification` en el JSON-LD.
 - [ ] **Ficha de Google y Search Console**: hacerlas cuando el dominio esté conectado (pasos en `README.md`).
