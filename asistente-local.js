@@ -97,7 +97,7 @@
     { k: ["lifting o laminado", "laminado o lifting", "diferencia entre lifting", "diferencia entre laminado", "lifting y laminado"],
       r: function () { return "El laminado es para las cejas: quedan visualmente más gruesas y definidas (30 €, o 35 € con depilación). El lifting es para las pestañas: las eleva desde la raíz y lleva tinte (38 €, 1 h). Si quieres las dos cosas, está el combo lifting + laminado + depilación por 62 €."; } },
     { k: ["quitar", "retirar", "retirada", "otro sitio", "otro centro"],
-      r: function () { return "Sí, se retira lo que lleves:\n" + allServices().filter(function (s) { return s.group === "Retiradas"; }).map(line).join("\n") + "\nAvísalo al reservar en " + BOOKSY; } }
+      r: function () { return "Sí. Si te vas a hacer la manicura, la retirada de otro centro son solo 5 €. Si solo quieres quitártelo, la retirada va aparte:\n" + allServices().filter(function (s) { return s.group === "Retiradas" && s.price !== "5 €"; }).map(line).join("\n") + "\nAvísalo al reservar en " + BOOKSY; } }
   ];
 
   // Estos, después: si no se ha nombrado un servicio concreto, se enseña la categoría

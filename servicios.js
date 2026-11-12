@@ -89,6 +89,7 @@ window.KURI_SERVICIOS = {
         ["Cejas", "6 €", "10 min"], ["Cejas + labio", "8 €", "15 min"], ["Rostro completo", "15 €", "20 min"]
       ]},
       { name: "Retiradas", items: [
+        ["De otro centro, al hacerte la manicura", "5 €", "", "Si vienes con uñas de otro sitio y te haces la manicura aquí."],
         ["Semipermanente pies", "6 €", "15 min", "Incluye corte de uñas y preparación de cutícula."],
         ["Semipermanente manos", "9 €", "30 min"],
         ["Acrílico o gel", "13 €", "40 min"]

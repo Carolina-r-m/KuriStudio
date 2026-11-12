@@ -69,7 +69,7 @@ Pedicura:
 - Esmaltado completo pro (manos con nivelación + pedicura completa con esmaltado): 47 € · 1 h 35 min
 Depilación con hilo: cejas 9 €, labio 6 €, mentón 5 €, patillas 6 €, ceja + labio 13 €, rostro completo 22 €.
 Depilación con cera: cejas 6 €, labio 4 €, mentón 3 €, patillas 4 €, cejas + labio 8 €, rostro completo 15 €.
-Retiradas: semipermanente manos 9 €, semipermanente pies 6 €, acrílico/gel 13 €.
+Retiradas: si se hace la manicura en Kuri, la retirada de otro centro cuesta 5 €. Como servicio aparte (solo retirar, sin manicura): semipermanente manos 9 €, semipermanente pies 6 €, acrílico/gel 13 €.
 
 CÓMO RESPONDER
 - Español cercano y cálido, tuteando. Respuestas breves: de 2 a 4 frases. Texto plano, sin markdown, asteriscos ni listas largas.
