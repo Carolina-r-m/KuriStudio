@@ -145,11 +145,11 @@ p { margin: 0; }
 .footer .logo__k { font-size: 16px; color: var(--ivory); }
 
 /* Asistente */
-/* Botón flotante y panel del chat */
-.bot { position: fixed; right: 20px; bottom: 20px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; max-width: calc(100vw - 40px); }
+/* Botón flotante y panel del chat. Va subido para no pisar el botón "Powered by Netlify" de abajo */
+.bot { position: fixed; right: 20px; bottom: 84px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; max-width: calc(100vw - 40px); }
 .bot__launch { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border: none; border-radius: 999px; background: var(--gold); color: var(--ink); font: 500 15px var(--sans); cursor: pointer; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); }
 .bot__launch:hover { background: var(--gold-hi); }
-.bot__panel { width: 380px; max-width: 100%; height: 560px; max-height: calc(100vh - 110px); background: var(--ivory); color: var(--forest); border-radius: 22px; border: 1px solid rgba(212, 178, 106, 0.5); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); display: flex; flex-direction: column; overflow: hidden; }
+.bot__panel { width: 380px; max-width: 100%; height: 560px; max-height: calc(100vh - 170px); background: var(--ivory); color: var(--forest); border-radius: 22px; border: 1px solid rgba(212, 178, 106, 0.5); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); display: flex; flex-direction: column; overflow: hidden; }
 .bot__panel[hidden] { display: none; }
 .bot__head { background: var(--forest); color: var(--ivory); padding: 14px 16px 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .bot__title { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.2; }
@@ -171,8 +171,8 @@ p { margin: 0; }
 .bot__note { padding: 0 14px 12px; font-size: 11.5px; line-height: 1.4; color: #4F5D58; }
 .bot__note a { color: #7A5C22; text-decoration: underline; }
 @media (max-width: 480px) {
-  .bot { right: 12px; bottom: 12px; max-width: calc(100vw - 24px); }
-  .bot__panel { height: calc(100vh - 100px); }
+  .bot { right: 12px; bottom: 80px; max-width: calc(100vw - 24px); }
+  .bot__panel { height: calc(100vh - 160px); }
 }
 
 /* Animación de entrada: el titular sube y la estrella dorada se enciende.
