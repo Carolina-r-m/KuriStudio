@@ -65,8 +65,8 @@ p { margin: 0; }
 .hero__media { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .hero__media img { width: 100%; object-fit: cover; border: 1px solid rgba(212, 178, 106, 0.35); }
 /* Foto con forma de arco de la portada */
-.arch { height: 440px; border-radius: 220px 220px 12px 12px; }
-.sign { height: 170px; border-radius: 12px; }
+.arch { height: 440px; border-radius: 220px 220px 12px 12px; object-position: center 40%; }
+.sign { height: 170px; border-radius: 12px; object-position: center 55%; }
 @media (max-width: 600px) { .arch { height: 340px; } .hero { padding-top: 48px; } }
 
 .strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 36px; padding: 22px 24px; background: var(--forest-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-family: var(--serif); font-style: italic; font-size: 24px; color: #E9DFC9; }
@@ -135,7 +135,7 @@ p { margin: 0; }
 .visit { background: var(--forest-2); border-top: 1px solid var(--line); }
 .visit__inner { display: flex; flex-wrap: wrap; gap: 56px; padding-top: 112px; padding-bottom: 112px; }
 .visit__text { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
-.visit__img { flex: 1 1 420px; min-width: 0; min-height: 420px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(212, 178, 106, 0.35); }
+.visit__img { flex: 1 1 420px; min-width: 0; min-height: 420px; max-height: 620px; object-fit: cover; object-position: center 15%; border-radius: 16px; border: 1px solid rgba(212, 178, 106, 0.35); }
 .contact { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .contact a { display: flex; align-items: center; gap: 14px; min-height: 44px; color: var(--ivory); }
 .contact svg { color: var(--gold); flex-shrink: 0; }
@@ -204,15 +204,16 @@ p { margin: 0; }
 .steps__list h3 { font-size: 24px; }
 .steps__list p { color: var(--sand); font-weight: 300; max-width: 30ch; }
 /* Dos fotos verticales, la segunda un poco más baja para que no queden en bloque */
-.steps__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 760px; }
+.steps__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .steps__photos img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 18px; border: 1px solid rgba(212, 178, 106, 0.3); }
 /* Encuadre: que se vean las manos y no la calle */
-.steps__photos img:first-child { object-position: center 70%; }
-.steps__photos img:last-child { object-position: center 85%; }
-.steps__photos img:last-child { margin-top: 48px; }
+.steps__photos img:nth-child(1) { object-position: center 60%; }
+.steps__photos img:nth-child(2) { object-position: center 70%; margin-top: 48px; }
+.steps__photos img:nth-child(3) { object-position: center 85%; }
 @media (max-width: 560px) {
-  .steps__photos { gap: 12px; }
-  .steps__photos img:last-child { margin-top: 28px; }
+  .steps__photos { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .steps__photos img:nth-child(1) { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+  .steps__photos img:nth-child(2) { margin-top: 0; }
 }
 
 /* Tarjeta regalo */

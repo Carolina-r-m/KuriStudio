@@ -5,6 +5,7 @@ Web de presentación para **Kuri Studio**, el estudio de uñas, mirada y tratami
 ## Datos del negocio (reales, verificados)
 
 - Dominio: **https://kuristudio.es** (sin www, es el principal).
+- Web publicada ahora en Netlify: https://kuristudio.netlify.app (hasta que se conecte el dominio).
 
 - Dirección: C/ Obispo Segura Sáez, 5, 10001 Cáceres. Solo con cita previa.
 - WhatsApp: +34 695 16 81 91 · Instagram y Threads: @kuristudio.caceres
@@ -29,7 +30,7 @@ netlify.toml                Configuración de Netlify (ejecuta npm run build y p
 build.mjs, package.json     Comprimen y ofuscan la web al publicar. dist/ no se sube a GitHub
 robots.txt, sitemap.xml     Para Google. Si se añade una página, va también al sitemap
 privacidad.html             Política de privacidad (plantilla con huecos entre corchetes)
-assets/img/                 Fotos (recortadas de capturas de pantalla, baja calidad)
+assets/img/                 Fotos. Originales: mesa, mesa-uv, fachada, letrero, compartir (vista previa al compartir), cris*, cita-*, formacion-paleta. El resto son recortes de capturas
 ```
 
 ## Secciones de la web (en orden)
