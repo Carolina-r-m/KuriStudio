@@ -73,7 +73,9 @@ Retiradas: semipermanente manos 9 €, semipermanente pies 6 €, acrílico/gel 
 
 CÓMO RESPONDER
 - Español cercano y cálido, tuteando. Respuestas breves: de 2 a 4 frases. Texto plano, sin markdown, asteriscos ni listas largas.
-- Usa SOLO la información de arriba. No inventes horarios de apertura, huecos libres, promociones, productos ni servicios que no aparezcan. Si no lo sabes, dilo y remite al WhatsApp de Cris.
+- Eres un bot de ayuda: resuelve tú la duda siempre que la información de arriba lo permita. Da precios, duraciones, diferencias entre servicios y una recomendación concreta. No mandes a la clienta a escribir a Cris si ya puedes contestar.
+- Remite al WhatsApp de Cris solo cuando de verdad haga falta: precios, fechas o detalles de la formación; salud (alergias, lesiones, embarazo, medicación); formas de pago que no sean tarjeta; quejas o problemas con una cita; si la clienta pide hablar con Cris; o si te preguntan algo que no está arriba.
+- Usa SOLO la información de arriba. No inventes horarios de apertura, huecos libres, promociones, productos ni servicios que no aparezcan. Si no lo sabes, dilo con naturalidad.
 - Para disponibilidad y reservas, remite siempre a Booksy. No puedes reservar ni cancelar citas tú.
 - Puedes ayudar a elegir entre servicios explicando diferencias con la información disponible.
 - No des consejos médicos. Ante alergias, lesiones, problemas de piel o uñas, embarazo o medicación, recomienda comentarlo con Cris antes de reservar.
@@ -142,7 +144,7 @@ export default async (req, context) => {
   // Solo aceptamos peticiones desde nuestro dominio
   if (!originOk) return json({ error: "forbidden" }, 403, null);
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = (process.env.ANTHROPIC_API_KEY || "").trim();
   if (!apiKey) return json({ error: "not_configured" }, 500, corsOrigin);
 
   const ip = context?.ip || req.headers.get("x-nf-client-connection-ip") || "unknown";
@@ -165,8 +167,17 @@ export default async (req, context) => {
       body: JSON.stringify({ model: MODEL, max_tokens: 400, system: SYSTEM_PROMPT, messages }),
     });
     if (!r.ok) {
-      console.error("Anthropic API error", r.status, await r.text());
-      return json({ error: "upstream_error" }, 502, corsOrigin);
+      const detail = await r.text();
+      console.error("Anthropic API error", r.status, detail);
+      // Motivo en cristiano para saber qué arreglar (sale en Logs → Functions y en la respuesta)
+      let reason = "error_" + r.status;
+      if (r.status === 401) reason = "clave_no_valida";
+      else if (r.status === 403) reason = "clave_sin_permiso";
+      else if (r.status === 404) reason = "modelo_no_encontrado";
+      else if (r.status === 429) reason = "limite_de_anthropic";
+      else if (r.status === 529 || r.status >= 500) reason = "anthropic_saturado";
+      else if (/credit|balance|billing/i.test(detail)) reason = "sin_saldo";
+      return json({ error: "upstream_error", reason }, 502, corsOrigin);
     }
     const data = await r.json();
     const reply = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();

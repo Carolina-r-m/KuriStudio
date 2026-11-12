@@ -10,7 +10,7 @@ const OUT = "dist";
 
 // Lo que se publica. README, CLAUDE.md, build.mjs y demás se quedan fuera
 const PAGES = ["index.html", "privacidad.html"];
-const SCRIPTS = ["servicios.js", "trabajos.js", "app.js"];
+const SCRIPTS = ["servicios.js", "trabajos.js", "asistente-local.js", "app.js"];
 const COPY = ["assets", "robots.txt", "sitemap.xml"];
 
 await rm(OUT, { recursive: true, force: true });

@@ -7,7 +7,6 @@
   var ENDPOINT = "/api/chat";
   var HELLO = "¡Hola! Soy la asistente de Kuri Studio. Pregúntame por servicios, precios o cómo llegar, y te ayudo a elegir.";
   var FALLBACK = "Ahora mismo no puedo responder. Escríbele a Cris por WhatsApp al +34 695 16 81 91 o reserva directamente en https://kuristudio.booksy.com/a";
-  var BUSY = "Hay muchas preguntas seguidas. Espera unos minutos o escríbele a Cris por WhatsApp al +34 695 16 81 91.";
   // Las tres preguntas rápidas que salen al abrir el chat
   var CHIPS = ["¿Qué manicura me dura más?", "¿Lifting o laminado?", "¿Dónde estáis?"];
 
@@ -32,7 +31,9 @@
       if (/^https?:\/\//.test(part)) {
         var a = document.createElement("a");
         a.href = part.replace(/[.,;]+$/, "");
-        a.textContent = part;
+        // Enlaces cortos: el de Maps se lee mal entero
+        a.textContent = /google\.[a-z.]+\/maps/.test(part) ? "Abrir en Google Maps"
+          : part.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
         a.target = "_blank";
         a.rel = "noopener";
         el.appendChild(a);
@@ -79,8 +80,14 @@
     }
   }
 
+  // Respuesta sin IA (asistente-local.js). Si ni eso está, el WhatsApp de Cris
+  function localReply(text) {
+    try { if (typeof window.KURI_LOCAL === "function") return window.KURI_LOCAL(text); } catch (e) {}
+    return FALLBACK;
+  }
+
   // Manda la pregunta y espera la respuesta.
-  // Si algo falla, en vez de un error sale el WhatsApp de Cris
+  // Si la IA falla, contesta la versión sin IA para que nadie se quede sin respuesta
   async function send(text) {
     text = (text || "").trim();
     if (!text || busy) return;
@@ -93,33 +100,30 @@
     history.push({ role: "user", content: text });
     var typing = addMsg("assistant", "Escribiendo…", "msg--typing");
 
-    var reply = FALLBACK;
+    var reply = null;
     try {
       // En la vista previa se usa KURI_ASK; en la web de verdad va por fetch a Netlify
       if (typeof window.KURI_ASK === "function") {
-        reply = (await window.KURI_ASK(history.slice(-12))) || FALLBACK;
+        reply = (await window.KURI_ASK(history.slice(-12))) || null;
       } else {
         var res = await fetch(ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messages: history.slice(-12) })
         });
-        // 429 = demasiados mensajes seguidos (el límite se pone en la función)
-        if (res.status === 429) {
-          reply = BUSY;
-        } else if (res.ok) {
+        if (res.ok) {
           var data = await res.json();
           if (data && data.reply) reply = data.reply;
         }
       }
     } catch (e) {
-      reply = FALLBACK;
+      reply = null;
     }
+    if (!reply) reply = localReply(text);
 
     typing.classList.remove("msg--typing");
     fill(typing, reply);
-    if (reply !== FALLBACK && reply !== BUSY) history.push({ role: "assistant", content: reply });
-    else history.pop(); // si falla, no se guarda la pregunta para no romper el turno
+    history.push({ role: "assistant", content: reply });
     log.scrollTop = log.scrollHeight;
     busy = false;
     sendBtn.disabled = false;

@@ -23,6 +23,7 @@ styles.css                  Estilos. Colores y fuentes en :root
 app.js                      Chat, galería, ventanas de la carta, test y carrusel de reseñas
 servicios.js                Carta completa (sale en las ventanas de cada categoría)
 trabajos.js                 Lista de fotos de la sección Trabajos
+asistente-local.js          Respuestas de Kuri sin IA, por si la IA falla (precios sacados de servicios.js)
 netlify/functions/chat.mjs  Servidor del asistente IA (lleva la clave y lo que sabe el asistente)
 netlify.toml                Configuración de Netlify (ejecuta npm run build y publica dist/)
 build.mjs, package.json     Comprimen y ofuscan la web al publicar. dist/ no se sube a GitHub
@@ -51,6 +52,9 @@ Portada → franja de servicios → Servicios (4 tarjetas que abren ventanas con
 - `ALLOWED_ORIGINS` limita qué dominios pueden usar el chat. Modelo por defecto: `claude-haiku-5-5` (cambiable con `ANTHROPIC_MODEL`).
 - Límite de 20 mensajes por IP cada 10 minutos, mensajes recortados a 600 caracteres, `max_tokens` 400.
 - Lo que sabe está en `SYSTEM_PROMPT` dentro de `chat.mjs`. No inventa horarios, huecos, promociones ni datos de las formaciones; para eso manda a Booksy o al WhatsApp.
+- Es un **bot de ayuda**: resuelve ella las dudas y solo manda al WhatsApp de Cris cuando hace falta (formación, salud, pagos que no sean tarjeta, quejas, diseños de nail art concretos, o si piden hablar con Cris).
+- Si la IA falla (sin saldo, clave mal, caída), contesta `asistente-local.js` por palabras clave. Si se añade un tema ahí, que sea un dato real.
+- Cuando falla, la función devuelve un `reason` (`clave_no_valida`, `sin_saldo`, `modelo_no_encontrado`...) que también sale en Netlify → Logs → Functions.
 - `app.js` admite `window.KURI_ASK` para la vista previa en claude.ai; en producción no existe y va por fetch.
 
 ## Normas que hemos seguido
