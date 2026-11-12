@@ -372,10 +372,18 @@ p { margin: 0; }
 .review--feature blockquote { color: var(--forest); font-style: italic; font-size: 24px; }
 .review--feature figcaption { color: #5C6B66; }
 .review--feature figcaption b { color: var(--forest); }
-.review__ba { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.review__ba span { position: relative; }
-.review__ba img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; }
-.review__ba i { position: absolute; left: 8px; bottom: 8px; background: rgba(16, 48, 42, 0.85); color: var(--ivory); font: 500 12px var(--sans); font-style: normal; padding: 4px 10px; border-radius: 999px; }
+/* Antes y después deslizable. --pos es dónde está la línea (lo mueve app.js) */
+.ba { --pos: 50%; position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; user-select: none; }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba__before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__tag { position: absolute; top: 10px; left: 10px; background: rgba(16, 48, 42, 0.85); color: var(--ivory); font: 500 12px var(--sans); font-style: normal; padding: 4px 10px; border-radius: 999px; pointer-events: none; }
+.ba__tag--after { left: auto; right: 10px; }
+.ba__line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--ivory); box-shadow: 0 0 8px rgba(0, 0, 0, 0.35); pointer-events: none; }
+/* El tirador redondo con flechas, en mitad de la línea */
+.ba__line::after { content: "‹ ›"; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; transform: translate(-50%, -50%); border-radius: 999px; background: var(--ivory); color: var(--forest); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font: 600 16px var(--sans); letter-spacing: 2px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
+/* El deslizador de verdad es invisible y ocupa toda la foto: así funciona con el dedo, el ratón y el teclado */
+.ba__range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.ba:has(.ba__range:focus-visible) { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
 .reviews__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .reviews__nav { display: flex; gap: 10px; }
 .reviews__nav button { width: 48px; height: 48px; border-radius: 999px; border: 1px solid rgba(212, 178, 106, 0.5); background: transparent; color: var(--ivory); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s, color .2s; }
@@ -417,3 +425,34 @@ p { margin: 0; }
 .training__note span { color: var(--gold); font-style: normal; margin-right: 6px; }
 .about__link { color: #7A5C22; text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .about__link:hover { color: var(--forest); }
+
+/* ¿Primera vez en Kuri? */
+.first { background: var(--forest-2); border-bottom: 1px solid var(--line); }
+.first__inner { padding-top: 96px; padding-bottom: 96px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; }
+.first__head { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 110px; }
+.first__head .display { font-size: clamp(44px, 5.5vw, 72px); }
+.first__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.first__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.first__list li { padding: 22px 22px 20px; background: var(--forest); border: 1px solid rgba(212, 178, 106, 0.25); border-radius: 18px; display: flex; flex-direction: column; gap: 8px; }
+.first__list h3 { font-size: 21px; line-height: 1.25; }
+.first__list h3::before { content: "✦"; color: var(--gold); font-size: 13px; margin-right: 10px; vertical-align: 3px; }
+.first__list p { margin: 0; color: var(--sand); font-weight: 300; line-height: 1.6; }
+.first__list a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 860px) {
+  .first__inner { grid-template-columns: 1fr; gap: 36px; padding-top: 72px; padding-bottom: 72px; }
+  .first__head { position: static; }
+}
+
+/* Botón fijo de WhatsApp */
+.wa { position: fixed; left: 20px; bottom: 20px; z-index: 50; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 20px 0 16px; border-radius: 999px; background: var(--forest); color: var(--ivory); border: 1px solid var(--gold); font: 500 15px var(--sans); text-decoration: none; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); transition: background .2s, color .2s; }
+.wa svg { color: #6FDB8F; }
+.wa:hover { background: var(--gold); color: var(--ink); }
+.wa:hover svg { color: var(--ink); }
+/* En el móvil, solo el icono redondo: ya hay muchos botones flotando */
+@media (max-width: 480px) {
+  .wa { left: 12px; bottom: 14px; width: 52px; height: 52px; min-height: 0; padding: 0; justify-content: center; }
+  .wa span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .wa svg { width: 26px; height: 26px; }
+}
+/* Con el chat abierto en el móvil, el WhatsApp se aparta para no estorbar */
+@media (max-width: 480px) { body:has(.bot__panel:not([hidden])) .wa { display: none; } }

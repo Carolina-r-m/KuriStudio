@@ -34,7 +34,9 @@ assets/img/                 Fotos (recortadas de capturas de pantalla, baja cali
 
 ## Secciones de la web (en orden)
 
-Portada → franja de servicios → Servicios (4 tarjetas que abren ventanas con la carta completa) → Test "¿Qué manicura es para ti?" → Así es tu cita → Soy Cris → Formación → Trabajos (galería con filtros y visor) → Reseñas (carrusel) → Tarjeta regalo → Dudas frecuentes → Visítanos → Pie. Botón flotante del asistente "Pregúntale a Kuri".
+Portada → franja de servicios → Servicios (4 tarjetas que abren ventanas con la carta completa) → Test "¿Qué manicura es para ti?" → Así es tu cita → ¿Primera vez en Kuri? → Soy Cris → Formación → Trabajos (galería con filtros y visor) → Reseñas (carrusel) → Tarjeta regalo → Dudas frecuentes → Visítanos → Pie. Botón flotante del asistente "Pregúntale a Kuri" (derecha, subido para no pisar el "Powered by Netlify") y botón fijo de WhatsApp (izquierda; en móvil solo el icono).
+
+- **Antes y después deslizable** (`.ba` en `index.html`, se mueve con `app.js`): ahora está en la reseña destacada con las fotos del laminado. Para añadir otro, copiar el bloque y cambiar las dos fotos; quedan bien si las dos tienen el mismo encuadre.
 
 ## Diseño
 
@@ -103,4 +105,5 @@ GitHub → Netlify (importar el repositorio) → variables de entorno → conect
 - [ ] **Test de manicura**: que Cris lo pruebe con varias respuestas y diga si recomendaría otra cosa en algún caso (lógica en `decide()` de `app.js`).
 - [ ] **Permiso** de la clienta de las fotos de antes y después del laminado (sección Reseñas).
 - [ ] La reseña del 22 de abril es mía; está firmada como "Clienta habitual".
-- [ ] Ideas aún sin hacer: versión en inglés, bloque "¿Primera vez?", antes y después deslizable, apartado de uñas Press On si las vende, consejos de cuidado.
+- [ ] **Antes y después de nivelación**: pedir a Cris fotos con el mismo encuadre (y permiso de la clienta) para añadir otro deslizador.
+- [ ] Ideas aún sin hacer: versión en inglés, apartado de uñas Press On si las vende, consejos de cuidado.

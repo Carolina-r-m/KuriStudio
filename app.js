@@ -533,3 +533,12 @@
   window.addEventListener("resize", update);
   update();
 })();
+
+// Antes y después: al mover el deslizador se mueve la línea
+document.querySelectorAll(".ba").forEach(function (ba) {
+  var range = ba.querySelector(".ba__range");
+  if (!range) return;
+  function update() { ba.style.setProperty("--pos", range.value + "%"); }
+  range.addEventListener("input", update);
+  update();
+});
